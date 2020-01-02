@@ -1,0 +1,2 @@
+C:\Coding\C#\PantryProject\PantryProject\obj\Debug\PantryProject_API.csprojAssemblyReference.cache
+C:\Coding\C#\PantryProject\PantryProject\obj\Debug\PantryProject_API.csproj.CoreCompileInputs.cache
