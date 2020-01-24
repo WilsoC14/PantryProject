@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using PantryProject.Data;
+using PantryProject.Data.Entities;
 
 namespace PantryProject_Data
 {
@@ -34,6 +36,13 @@ namespace PantryProject_Data
             return new ApplicationDbContext();
         }
         public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<PreparedItem> PreparedItems { get; set; }
+        public DbSet<IngredientInPreparedItem> Ingredients_In_PreparedItems { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<IngredientInRecipe> Ingredients_In_Recipes { get; set; }
+        public DbSet<PreparedItemInRecipe> PreparedItems_In_Recipes { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<RecipeInMenu> Recipes_In_Menus { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
