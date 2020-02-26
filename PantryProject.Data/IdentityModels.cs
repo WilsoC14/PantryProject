@@ -35,7 +35,10 @@ namespace PantryProject_Data
         {
             return new ApplicationDbContext();
         }
+
+        // base building block
         public DbSet<Ingredient> Ingredients { get; set; }
+        
         public DbSet<PreparedItem> PreparedItems { get; set; }
         public DbSet<IngredientInPreparedItem> Ingredients_In_PreparedItems { get; set; }
         public DbSet<Recipe> Recipes { get; set; }

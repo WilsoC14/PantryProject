@@ -67,6 +67,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,11 +78,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ingredient\Ingredient_Create.cs" />
+    <Compile Include="Ingredient\Ingredient_Detail.cs" />
+    <Compile Include="Ingredient\Ingredient_Edit.cs" />
+    <Compile Include="Ingredient\Ingredient_ListItem.cs" />
+    <Compile Include="Menu\Menu_Create.cs" />
+    <Compile Include="Menu\Menu_Detail.cs" />
+    <Compile Include="Menu\Menu_Edit.cs" />
+    <Compile Include="Menu\Menu_ListItem.cs" />
+    <Compile Include="PreparedItem\PreparedItem_Create.cs" />
+    <Compile Include="PreparedItem\PreparedItem_Detail.cs" />
+    <Compile Include="PreparedItem\PreparedItem_Edit.cs" />
+    <Compile Include="PreparedItem\PreparedItem_ListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipe\Recipe_Create.cs" />
+    <Compile Include="Recipe\Recipe_Detail.cs" />
+    <Compile Include="Recipe\Recipe_Edit.cs" />
+    <Compile Include="Recipe\Recipe_ListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PantryProject.Data\PantryProject_Data.csproj">
+      <Project>{CE155197-B818-4EDC-B97D-DEE72FE48CBE}</Project>
+      <Name>PantryProject_Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="JoiningModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
