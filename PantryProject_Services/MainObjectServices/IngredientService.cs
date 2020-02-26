@@ -11,6 +11,8 @@ namespace PantryProject_Services
 {
     public class IngredientService
     {
+       public IngredientService() { }
+
         public bool Create_Ingredient(Ingredient_Create ingredientToCreate)
         {
             Ingredient entity = new Ingredient()

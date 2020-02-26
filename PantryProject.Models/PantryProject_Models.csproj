@@ -82,6 +82,7 @@
     <Compile Include="Ingredient\Ingredient_Detail.cs" />
     <Compile Include="Ingredient\Ingredient_Edit.cs" />
     <Compile Include="Ingredient\Ingredient_ListItem.cs" />
+    <Compile Include="JoiningModels\Add_Ingredient_To_PreparedItem_Model.cs" />
     <Compile Include="Menu\Menu_Create.cs" />
     <Compile Include="Menu\Menu_Detail.cs" />
     <Compile Include="Menu\Menu_Edit.cs" />
@@ -106,8 +107,6 @@
       <Name>PantryProject_Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="JoiningModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

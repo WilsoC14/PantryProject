@@ -1,4 +1,5 @@
 ﻿using PantryProject.Data.Entities;
+using PantryProject.Models.Ingredient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace PantryProject.Models.PreparedItem
         
         public PreparedItem_State StateOf_PreparedItem { get; set; }
 
+        public List<Ingredient_ListItem> ListOfIngredients { get; set; }
 
         // probably need the ICollections as a List
     }

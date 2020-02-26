@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Models.Ingredient
 {
+
     public class Ingredient_Create
     {
         public string Name { get; set; }

@@ -11,6 +11,7 @@ namespace PantryProject_Services
 {
     public class PreparedItem_Service
     {
+       public PreparedItem_Service() { }
         public bool Create_PreparedItem(PreparedItem_Create model)
         {
             PreparedItem entity = new PreparedItem()
@@ -105,6 +106,8 @@ namespace PantryProject_Services
             
 
         }
+
+        
 
     }
 }

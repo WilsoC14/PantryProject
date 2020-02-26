@@ -7,8 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PantryProject.Data
-{  public enum IngredientType { Fruit, Vegetable, Starch, Meat, Fish, Other}
-    public enum StateOfIngredient { Solid, Liquid, Gas, Granule, Powder, Other}
+{
+    public enum IngredientType { Fruit, Vegetable, Starch, Meat, Fish, Other }
+    public enum StateOfIngredient { Solid, Liquid, Gas, Granule, Powder, Other }
 
     public class Ingredient
     {
