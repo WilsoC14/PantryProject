@@ -22,7 +22,7 @@ namespace PantryProject_Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.PreparedItems.Add(entity);
+                ctx.PreparedItem_Table.Add(entity);
                 return ctx.SaveChanges() == 1;
             }             
         }
@@ -31,7 +31,7 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.PreparedItems
+                var query = ctx.PreparedItem_Table
                                .Select(
                                    i => new PreparedItem_ListItem
                                    {
@@ -49,7 +49,7 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.PreparedItems.Single(i => i.Name == itemName);
+                var entity = ctx.PreparedItem_Table.Single(i => i.Name == itemName);
 
                 var item = new PreparedItem_Detail()
                 {
@@ -67,7 +67,7 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.PreparedItems.Single(i => i.Id == Id);
+                var entity = ctx.PreparedItem_Table.Single(i => i.Id == Id);
 
                 var item = new PreparedItem_Detail()
                 {
@@ -86,7 +86,7 @@ namespace PantryProject_Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.PreparedItems.Remove(entity);
+                ctx.PreparedItem_Table.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
 
@@ -98,7 +98,7 @@ namespace PantryProject_Services
             {
                 var entity =
                     ctx
-                        .PreparedItems
+                        .PreparedItem_Table
                         .Single(i => i.Id == id);
                 return entity;
             }

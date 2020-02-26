@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Data.Entities
 {
-    public class PreparedItemInRecipe
+    public class Join_PreparedItem_Recipe
     {
         public int Id { get; set; }
 

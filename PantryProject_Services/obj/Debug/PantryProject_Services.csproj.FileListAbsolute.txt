@@ -1,7 +1,6 @@
 C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\PantryProject_Services.dll
 C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\PantryProject_Services.pdb
 C:\Coding\C#\PantryProject\PantryProject_Services\obj\Debug\PantryProject_Services.csprojAssemblyReference.cache
-C:\Coding\C#\PantryProject\PantryProject_Services\obj\Debug\PantryProject_Services.csproj.CoreCompileInputs.cache
 C:\Coding\C#\PantryProject\PantryProject_Services\obj\Debug\PantryProject_Services.dll
 C:\Coding\C#\PantryProject\PantryProject_Services\obj\Debug\PantryProject_Services.pdb
 C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\PantryProject_Services.dll.config
@@ -27,3 +26,11 @@ C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\Microsoft.Owin.Secur
 C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\Newtonsoft.Json.xml
 C:\Coding\C#\PantryProject\PantryProject_Services\obj\Debug\PantryProject_Services.csproj.CopyComplete
+C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\PantryProject.Data.dll
+C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\PantryProject.Models.dll
+C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\System.Net.Http.Formatting.dll
+C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\PantryProject.Data.pdb
+C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\PantryProject.Data.dll.config
+C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\PantryProject.Models.pdb
+C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\PantryProject.Models.dll.config
+C:\Coding\C#\PantryProject\PantryProject_Services\bin\Debug\System.Net.Http.Formatting.xml

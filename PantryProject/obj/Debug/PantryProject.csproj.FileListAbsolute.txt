@@ -1,5 +1,4 @@
 C:\Coding\C#\PantryProject\PantryProject\obj\Debug\PantryProject.csprojAssemblyReference.cache
-C:\Coding\C#\PantryProject\PantryProject\obj\Debug\PantryProject.csproj.CoreCompileInputs.cache
 C:\Coding\C#\PantryProject\PantryProject\bin\PantryProject.dll.config
 C:\Coding\C#\PantryProject\PantryProject\bin\PantryProject.dll
 C:\Coding\C#\PantryProject\PantryProject\bin\PantryProject.pdb
@@ -117,3 +116,6 @@ C:\Coding\C#\PantryProject\PantryProject\bin\Microsoft.CodeDom.Providers.DotNetC
 C:\Coding\C#\PantryProject\PantryProject\obj\Debug\PantryProject.csproj.CopyComplete
 C:\Coding\C#\PantryProject\PantryProject\obj\Debug\PantryProject.dll
 C:\Coding\C#\PantryProject\PantryProject\obj\Debug\PantryProject.pdb
+C:\Coding\C#\PantryProject\PantryProject\bin\PantryProject.Models.dll
+C:\Coding\C#\PantryProject\PantryProject\bin\PantryProject.Models.pdb
+C:\Coding\C#\PantryProject\PantryProject\bin\PantryProject.Models.dll.config

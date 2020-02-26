@@ -78,8 +78,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IngredientService.cs" />
-    <Compile Include="PreparedItem_Service.cs" />
+    <Compile Include="JoiningObjectServices\Join_Ingredient_PreparedItem.cs" />
+    <Compile Include="MainObjectServices\IngredientService.cs" />
+    <Compile Include="MainObjectServices\PreparedItem_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,5 +97,6 @@
       <Name>PantryProject_Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

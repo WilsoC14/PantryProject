@@ -19,7 +19,7 @@ namespace PantryProject.Data
         [Required]
         public IngredientType TypeOfIngredient { get; set; }
         public StateOfIngredient IngredientState { get; set; }      // I don't feel like state is important upon create, maybe something we can change dependent upon an ingredients use... don't necessarily want to have separate ingredients for granulated garlic and garlic powder... or maybe we do, but am going to table that for now
-        public virtual ICollection<IngredientInPreparedItem> PreparedItems_With_Ingredient { get; set; }
-        public virtual ICollection<IngredientInRecipe> Recipes_With_Ingredient { get; set; }
+        public virtual ICollection<Join_Ingredient_PreparedItem> PreparedItems_With_Ingredient { get; set; }
+        public virtual ICollection<Join_Ingredient_Recipe> Recipes_With_Ingredient { get; set; }
     }
 }

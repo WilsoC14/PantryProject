@@ -1,7 +1,6 @@
 C:\Coding\C#\PantryProject\PantryProject.Contracts\bin\Debug\PantryProject.Contracts.dll
 C:\Coding\C#\PantryProject\PantryProject.Contracts\bin\Debug\PantryProject.Contracts.pdb
 C:\Coding\C#\PantryProject\PantryProject.Contracts\obj\Debug\PantryProject_Contracts.csprojAssemblyReference.cache
-C:\Coding\C#\PantryProject\PantryProject.Contracts\obj\Debug\PantryProject_Contracts.csproj.CoreCompileInputs.cache
 C:\Coding\C#\PantryProject\PantryProject.Contracts\obj\Debug\PantryProject.Contracts.dll
 C:\Coding\C#\PantryProject\PantryProject.Contracts\obj\Debug\PantryProject.Contracts.pdb
 C:\Coding\C#\PantryProject\PantryProject.Contracts\bin\Debug\PantryProject.Contracts.dll.config
@@ -27,3 +26,5 @@ C:\Coding\C#\PantryProject\PantryProject.Contracts\bin\Debug\Microsoft.Owin.Secu
 C:\Coding\C#\PantryProject\PantryProject.Contracts\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\Coding\C#\PantryProject\PantryProject.Contracts\bin\Debug\Newtonsoft.Json.xml
 C:\Coding\C#\PantryProject\PantryProject.Contracts\obj\Debug\PantryProject_Contracts.csproj.CopyComplete
+C:\Coding\C#\PantryProject\PantryProject.Contracts\bin\Debug\System.Net.Http.Formatting.dll
+C:\Coding\C#\PantryProject\PantryProject.Contracts\bin\Debug\System.Net.Http.Formatting.xml

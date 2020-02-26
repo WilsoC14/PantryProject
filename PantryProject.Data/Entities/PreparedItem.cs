@@ -19,7 +19,7 @@ namespace PantryProject.Data.Entities
         public PreparedItem_Type TypeOf_PreparedItem { get; set; }
         [Required]
         public PreparedItem_State StateOf_PreparedItem { get; set; }
-        public virtual ICollection<IngredientInPreparedItem> Ingredients_In_PreparedItem { get; set; }
-        public virtual ICollection<PreparedItemInRecipe> Recipes_With_PreparedItem { get; set; }
+        public virtual ICollection<Join_Ingredient_PreparedItem> Ingredients_In_PreparedItem { get; set; }
+        public virtual ICollection<Join_PreparedItem_Recipe> Recipes_With_PreparedItem { get; set; }
     }
 }

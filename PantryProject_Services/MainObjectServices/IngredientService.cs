@@ -21,7 +21,7 @@ namespace PantryProject_Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Ingredients.Add(entity);
+                ctx.Ingredient_Table.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
 
@@ -30,7 +30,7 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Ingredients
+                var query = ctx.Ingredient_Table
                                .Select(
                                    i => new Ingredient_ListItem
                                    {
@@ -48,7 +48,7 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ingredients.Single(i => i.Name == ingredientName);
+                var entity = ctx.Ingredient_Table.Single(i => i.Name == ingredientName);
 
                 var ingredient = new Ingredient_Detail()
                 {
@@ -66,7 +66,7 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ingredients.Single(i => i.Id == id);
+                var entity = ctx.Ingredient_Table.Single(i => i.Id == id);
 
                 var ingredient = new Ingredient_Detail()
                 {
@@ -85,7 +85,7 @@ namespace PantryProject_Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Ingredients.Remove(entity);
+                ctx.Ingredient_Table.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
 
@@ -97,7 +97,7 @@ namespace PantryProject_Services
             {
                 var entity =
                     ctx
-                        .Ingredients
+                        .Ingredient_Table
                         .Single(i => i.Id == id);
                 return entity;
             }
