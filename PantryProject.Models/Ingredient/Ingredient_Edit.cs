@@ -11,7 +11,8 @@ namespace PantryProject.Models.Ingredient
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string OldName { get; set; }
+        public string NewName { get; set; }
 
         public IngredientType TypeOfIngredient { get; set; }
         public StateOfIngredient IngredientState { get; set; }

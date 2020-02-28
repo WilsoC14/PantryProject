@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using PantryProject_API.Models;
+using PantryProject_Data;
 
 namespace PantryProject_API.Providers
 {

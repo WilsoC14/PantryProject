@@ -87,7 +87,7 @@ namespace PantryProject_Services
             {
                 var entity = ctx.Ingredient_Table.SingleOrDefault(i => i.Id == model.Id);
 
-                entity.Name = model.Name;
+                entity.Name = model.NewName;
                 entity.TypeOfIngredient = model.TypeOfIngredient;
                 entity.IngredientState = model.IngredientState;
 
@@ -100,12 +100,31 @@ namespace PantryProject_Services
 
         }
 
-        public bool Delete_Ingredient(int id)
+        public bool Edit_IngredientByName(Ingredient_Edit model)
         {
-            var entity = Get_ActualIngredient_ById(id);
-
             using (var ctx = new ApplicationDbContext())
             {
+                var entity = ctx.Ingredient_Table.SingleOrDefault(i => i.Name == model.OldName);
+
+                entity.Name = model.NewName;
+                entity.TypeOfIngredient = model.TypeOfIngredient;
+                entity.IngredientState = model.IngredientState;
+
+                if (!ctx.ChangeTracker.HasChanges())
+                {
+                    return true;
+                }
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+
+        public bool Delete_IngredientByName(string name)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ingredient_Table.SingleOrDefault(i => i.Name == name);
+
                 ctx.Ingredient_Table.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
