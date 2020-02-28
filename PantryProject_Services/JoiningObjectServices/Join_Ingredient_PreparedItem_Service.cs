@@ -15,6 +15,7 @@ namespace PantryProject_Services.JoiningObjectServices
 
         // we already have a prepared Item, we are then creating a model that we can add an Ingredient to.
         // the model has the properties for the ingredient, but we are not giving them a value in this method
+        // this method probably will only be used to populate views for the WebPages assembly
         public Add_Ingredient_To_PreparedItem_Model Get_AddIngredient_To_PreparedItem_Model(int PI_Id)
         {
            

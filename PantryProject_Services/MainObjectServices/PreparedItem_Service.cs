@@ -1,4 +1,6 @@
 ﻿using PantryProject.Data.Entities;
+using PantryProject.Models.Ingredient;
+using PantryProject.Models.JoiningModels;
 using PantryProject.Models.PreparedItem;
 using PantryProject_Data;
 using System;
@@ -66,16 +68,30 @@ namespace PantryProject_Services
 
         public PreparedItem_Detail Get_PreparedItem_ById(int Id)
         {
+            var ingService = new Ingredient_Service();
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.PreparedItem_Table.Single(i => i.Id == Id);
+                var listOfIngredients = new List<Ingredient_ListItem>()
+                { };
+                foreach(var ingredient in entity.Ingredients_In_PreparedItem)
+                {
+                    var ingredientDetail = ingService.Get_IngredientById(ingredient.Id);
+                    var ingredientModel = new Ingredient_ListItem()
+                    {
+                        Id = ingredient.Id,
+                        Name = ingredientDetail.Name,
 
+                    };
+                    listOfIngredients.Add(ingredientModel);
+                }
                 var item = new PreparedItem_Detail()
                 {
                     Id = entity.Id,
                     Name = entity.Name,
                     TypeOf_PreparedItem = entity.TypeOf_PreparedItem,
-                    StateOf_PreparedItem = entity.StateOf_PreparedItem
+                    StateOf_PreparedItem = entity.StateOf_PreparedItem,
+                    ListOfIngredients = listOfIngredients
                 };
                 return item;
 
@@ -112,6 +128,24 @@ namespace PantryProject_Services
 
         }
 
+
+        public bool Add_IngredientTo_PrepairedItem(Add_Ingredient_To_PreparedItem_Model model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {   //if ingredient doesn't exist, we'll need to add it to the database
+                var ingredientWithId = ctx.Ingredient_Table.Single(i => i.Name == model.IngredientName);
+
+                var entity = new Join_Ingredient_PreparedItem()
+                {
+                    PreparedItemId = model.PreparedItemId,
+                    IngredientId = model.IngredientID
+                };
+                ctx.Join_Ingredient_PreparedItem_Table.Add(entity);
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
         private PreparedItem Get_ActualPreparedItem_ById(int id)
         {
             using (var ctx = new ApplicationDbContext())

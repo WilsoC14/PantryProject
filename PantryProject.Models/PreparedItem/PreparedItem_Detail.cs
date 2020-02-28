@@ -20,6 +20,6 @@ namespace PantryProject.Models.PreparedItem
 
         public List<Ingredient_ListItem> ListOfIngredients { get; set; }
 
-        // probably need the ICollections as a List
+        
     }
 }
