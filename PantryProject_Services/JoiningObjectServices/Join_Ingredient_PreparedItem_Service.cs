@@ -42,7 +42,7 @@ namespace PantryProject_Services.JoiningObjectServices
             }
         }
 
-        public bool DeleteArtistShowData(int id)
+        public bool Delete_Join_Ingredient_PreparedItem(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

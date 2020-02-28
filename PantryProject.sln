@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PantryProject_Contracts", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PantryProject_Services", "PantryProject_Services\PantryProject_Services.csproj", "{374881E0-0BAD-4E3C-8061-19A1FDC34B2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PantryProject_API", "PantryProject_API\PantryProject_API.csproj", "{3B929446-EFCC-48A9-A9D6-75A193A1C408}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{374881E0-0BAD-4E3C-8061-19A1FDC34B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{374881E0-0BAD-4E3C-8061-19A1FDC34B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{374881E0-0BAD-4E3C-8061-19A1FDC34B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B929446-EFCC-48A9-A9D6-75A193A1C408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B929446-EFCC-48A9-A9D6-75A193A1C408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B929446-EFCC-48A9-A9D6-75A193A1C408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B929446-EFCC-48A9-A9D6-75A193A1C408}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,7 @@ namespace PantryProject_Services
 {
     public class IngredientService
     {
-       public IngredientService() { }
+        public IngredientService() { }
 
         public bool Create_Ingredient(Ingredient_Create ingredientToCreate)
         {
@@ -79,6 +79,25 @@ namespace PantryProject_Services
                 };
                 return ingredient;
             }
+        }
+
+        public bool Edit_IngredientById(Ingredient_Edit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ingredient_Table.SingleOrDefault(i => i.Id == model.Id);
+
+                entity.Name = model.Name;
+                entity.TypeOfIngredient = model.TypeOfIngredient;
+                entity.IngredientState = model.IngredientState;
+
+                if(!ctx.ChangeTracker.HasChanges())
+                {
+                    return true;
+                }
+                return ctx.SaveChanges() == 1;
+            }
+
         }
 
         public bool Delete_Ingredient(int id)
