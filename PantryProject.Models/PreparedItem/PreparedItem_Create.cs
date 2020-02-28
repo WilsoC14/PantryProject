@@ -10,8 +10,8 @@ namespace PantryProject.Models.PreparedItem
     public class PreparedItem_Create
     {
         public string Name { get; set; }
-        public PreparedItem_Type PreparedItemType { get; set; }
-        public PreparedItem_State PreparedItemState { get; set; }
+        public PreparedItem_Type TypeOf_PreparedItem { get; set; }
+        public PreparedItem_State StateOf_PreparedItem { get; set; }
         // should a list of ingredients be added to this now, or do we funnel into that through the UI?
     }
 }

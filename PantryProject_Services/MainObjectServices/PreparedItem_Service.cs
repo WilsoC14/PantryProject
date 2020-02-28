@@ -17,8 +17,8 @@ namespace PantryProject_Services
             PreparedItem entity = new PreparedItem()
             {
                 Name = model.Name,
-                TypeOf_PreparedItem = model.PreparedItemType,
-                StateOf_PreparedItem = model.PreparedItemState
+                TypeOf_PreparedItem = model.TypeOf_PreparedItem,
+                StateOf_PreparedItem = model.StateOf_PreparedItem
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -81,12 +81,31 @@ namespace PantryProject_Services
 
             }
         }
-        public bool Delete_PreparedItem(int id)
-        {
-            var entity = Get_ActualPreparedItem_ById(id);
 
+        public bool Edit_PreparedItemByName(PreparedItem_Edit model)
+        {
             using (var ctx = new ApplicationDbContext())
             {
+                var entity = ctx.PreparedItem_Table.SingleOrDefault(i => i.Name == model.OriginalName);
+
+                entity.Name = model.NewName;
+                entity.TypeOf_PreparedItem = model.TypeOf_PreparedItem;
+                entity.StateOf_PreparedItem = model.StateOf_PreparedItem;
+
+                if (!ctx.ChangeTracker.HasChanges())
+                {
+                    return true;
+                }
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+        public bool Delete_PreparedItemByName(string name)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.PreparedItem_Table.SingleOrDefault(i => i.Name == name);
+
                 ctx.PreparedItem_Table.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

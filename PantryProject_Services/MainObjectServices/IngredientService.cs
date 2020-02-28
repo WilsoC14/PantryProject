@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace PantryProject_Services
 {
-    public class IngredientService
+    public class Ingredient_Service
     {
-        public IngredientService() { }
+        public Ingredient_Service() { }
 
         public bool Create_Ingredient(Ingredient_Create ingredientToCreate)
         {
@@ -104,7 +104,7 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ingredient_Table.SingleOrDefault(i => i.Name == model.OldName);
+                var entity = ctx.Ingredient_Table.SingleOrDefault(i => i.Name == model.OriginalName);
 
                 entity.Name = model.NewName;
                 entity.TypeOfIngredient = model.TypeOfIngredient;

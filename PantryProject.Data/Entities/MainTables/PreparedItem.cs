@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Data.Entities
 {
-    public enum PreparedItem_Type { sauce, paste, blend, liquid, other }
+    public enum PreparedItem_Type { unclassified, puree, sauce, paste, blend, liquid, other }
     public enum PreparedItem_State { liquid, solid, gas }
     public class PreparedItem
     {[Key]

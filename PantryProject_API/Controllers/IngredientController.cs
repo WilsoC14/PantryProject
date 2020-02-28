@@ -15,7 +15,7 @@ namespace PantryProject_API.Controllers
         [HttpGet]
         public IHttpActionResult GetAll_Ingredients()
         {
-            IngredientService ingredientService = CreateIngredientService();
+            Ingredient_Service ingredientService = CreateIngredientService();
             var ingredients = ingredientService.Get_AllIngredients();
             return Ok(ingredients);   //what is exactly happening when you pass the list into the Ok() 
         }
@@ -68,9 +68,9 @@ namespace PantryProject_API.Controllers
             return Ok();
         }
 
-        private IngredientService CreateIngredientService()
+        private Ingredient_Service CreateIngredientService()
         {
-            return  new IngredientService();
+            return  new Ingredient_Service();
         }
 
     }
