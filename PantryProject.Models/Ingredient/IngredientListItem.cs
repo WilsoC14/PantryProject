@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Models.Ingredient
 {
-    public class Ingredient_ListItem
+    public class IngredientListItem
     {
         
         public int Id { get; set; }

@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace PantryProject_Services.JoiningObjectServices
 {
-    public class Join_Ingredient_PreparedItem_Service
+    public class Join_IngredientPreparedItemService
     {
-        Join_Ingredient_PreparedItem_Service() { }
+        Join_IngredientPreparedItemService() { }
 
         // we already have a prepared Item, we are then creating a model that we can add an Ingredient to.
         // the model has the properties for the ingredient, but we are not giving them a value in this method
         // this method probably will only be used to populate views for the WebPages assembly
-        public Add_Ingredient_To_PreparedItem_Model Get_AddIngredient_To_PreparedItem_Model(int PI_Id)
+        public AddIngredientToPreparedItem Get_AddIngredientToPreparedItem(int PI_Id)
         {
            
             var PI_Service = new PreparedItem_Service();
-            var PI_Detail = PI_Service.Get_PreparedItem_ById(PI_Id);
-            return new Add_Ingredient_To_PreparedItem_Model()
+            var PI_Detail = PI_Service.Get_PreparedItemById(PI_Id);
+            return new AddIngredientToPreparedItem()
             {
                 PreparedItemId = PI_Detail.Id,
                 PreparedItemName = PI_Detail.Name,
@@ -29,26 +29,26 @@ namespace PantryProject_Services.JoiningObjectServices
             };
         }
 
-        public bool Create_Join_Ingredient_PreparedItem(Add_Ingredient_To_PreparedItem_Model model)
+        public bool Create_JoinIngredientPreparedItem(AddIngredientToPreparedItem model)
         {
-            var entity = new Join_Ingredient_PreparedItem()
+            var entity = new Join_IngredientsInPreparedItem()
             {
                 IngredientId = model.IngredientID,
                 PreparedItemId = model.PreparedItemId
             };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Join_Ingredient_PreparedItem_Table.Add(entity);
+                ctx.Join_IngredientsInPreparedItems.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool Delete_Join_Ingredient_PreparedItem(int id)
+        public bool Delete_JoinIngredientPreparedItem(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Join_Ingredient_PreparedItem_Table.Single(e => e.Id == id);
-                ctx.Join_Ingredient_PreparedItem_Table.Remove(entity);
+                var entity = ctx.Join_IngredientsInPreparedItems.Single(e => e.Id == id);
+                ctx.Join_IngredientsInPreparedItems.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
         }

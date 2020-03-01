@@ -10,8 +10,8 @@ namespace PantryProject.Data.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<Join_Ingredient_Recipe> Ingredients_In_Recipe { get; set; }
-        public virtual ICollection<Join_PreparedItem_Recipe> PreparedItems_In_Recipe { get; set; }
-        public virtual ICollection<Join_Recipe_Menu> Menus_With_Recipe { get; set; }
+        public virtual ICollection<Join_IngredientsInRecipe> Ingredients_In_Recipe { get; set; }
+        public virtual ICollection<Join_PreparedItemsInRecipe> PreparedItems_In_Recipe { get; set; }
+        public virtual ICollection<Join_RecipesInMenu> Menus_With_Recipe { get; set; }
     }
 }

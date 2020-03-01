@@ -78,19 +78,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ingredient\Ingredient_Create.cs" />
-    <Compile Include="Ingredient\Ingredient_Detail.cs" />
-    <Compile Include="Ingredient\Ingredient_Edit.cs" />
-    <Compile Include="Ingredient\Ingredient_ListItem.cs" />
-    <Compile Include="JoiningModels\Add_Ingredient_To_PreparedItem_Model.cs" />
+    <Compile Include="Ingredient\IngredientCreate.cs" />
+    <Compile Include="Ingredient\IngredientDetail.cs" />
+    <Compile Include="Ingredient\IngredientEdit.cs" />
+    <Compile Include="Ingredient\IngredientListItem.cs" />
+    <Compile Include="JoiningModels\AddIngredientToPreparedItem.cs" />
     <Compile Include="Menu\Menu_Create.cs" />
     <Compile Include="Menu\Menu_Detail.cs" />
     <Compile Include="Menu\Menu_Edit.cs" />
     <Compile Include="Menu\Menu_ListItem.cs" />
-    <Compile Include="PreparedItem\PreparedItem_Create.cs" />
-    <Compile Include="PreparedItem\PreparedItem_Detail.cs" />
-    <Compile Include="PreparedItem\PreparedItem_Edit.cs" />
-    <Compile Include="PreparedItem\PreparedItem_ListItem.cs" />
+    <Compile Include="PreparedItem\PreparedItemCreate.cs" />
+    <Compile Include="PreparedItem\PreparedItemDetail.cs" />
+    <Compile Include="PreparedItem\PreparedItemEdit.cs" />
+    <Compile Include="PreparedItem\PreparedItemListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe\Recipe_Create.cs" />
     <Compile Include="Recipe\Recipe_Detail.cs" />

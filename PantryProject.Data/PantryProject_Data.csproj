@@ -78,13 +78,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\JoiningTables\Join_Ingredient_PreparedItem.cs" />
-    <Compile Include="Entities\JoiningTables\Join_Ingredient_Recipe.cs" />
+    <Compile Include="Entities\JoiningTables\Join_IngredientsInPreparedItem.cs" />
+    <Compile Include="Entities\JoiningTables\Join_IngredientsInRecipe.cs" />
     <Compile Include="Entities\MainTables\Menu.cs" />
     <Compile Include="Entities\MainTables\PreparedItem.cs" />
-    <Compile Include="Entities\JoiningTables\Join_PreparedItem_Recipe.cs" />
+    <Compile Include="Entities\JoiningTables\Join_PreparedItemsInRecipe.cs" />
     <Compile Include="Entities\MainTables\Recipe.cs" />
-    <Compile Include="Entities\JoiningTables\Join_Recipe_Menu.cs" />
+    <Compile Include="Entities\JoiningTables\Join_RecipesInMenu.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Entities\MainTables\Ingredient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

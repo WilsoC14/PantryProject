@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Models.Ingredient
 {
-    public class Ingredient_Edit
+
+    public class IngredientCreate
     {
-        public int Id { get; set; }
-
-        public string OriginalName { get; set; }
-        public string NewName { get; set; }
-
+        public string Name { get; set; }
         public IngredientType TypeOfIngredient { get; set; }
-        public StateOfIngredient IngredientState { get; set; }
-
     }
 }

@@ -16,7 +16,7 @@ namespace PantryProject_API.Controllers
         public IHttpActionResult GetAll_Ingredients()
         {
             Ingredient_Service ingredientService = CreateIngredientService();
-            var ingredients = ingredientService.Get_AllIngredients();
+            var ingredients = ingredientService.GetAll_Ingredients();
             return Ok(ingredients);   //what is exactly happening when you pass the list into the Ok() 
         }
         [HttpGet]
@@ -36,7 +36,7 @@ namespace PantryProject_API.Controllers
         }
         [HttpPost]
        
-        public IHttpActionResult Post_CreateIngredient(Ingredient_Create model)
+        public IHttpActionResult Post_CreateIngredient(IngredientCreate model)
         { // put in some logic to prevent duplicate ingredient to be created.
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -47,7 +47,7 @@ namespace PantryProject_API.Controllers
             return Ok();
         }
         [HttpPut]
-        public IHttpActionResult Put_IngredientByName(Ingredient_Edit model)
+        public IHttpActionResult Put_IngredientByName(IngredientEdit model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

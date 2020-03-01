@@ -11,7 +11,7 @@ namespace PantryProject.Data.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<Join_Recipe_Menu> Recipes_In_Menu { get; set; }
+        public virtual ICollection<Join_RecipesInMenu> Recipes_In_Menu { get; set; }
         
     }
     

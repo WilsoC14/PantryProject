@@ -13,7 +13,7 @@ namespace PantryProject_Services
     {
         public Ingredient_Service() { }
 
-        public bool Create_Ingredient(Ingredient_Create ingredientToCreate)
+        public bool Create_Ingredient(IngredientCreate ingredientToCreate)
         {
             Ingredient entity = new Ingredient()
             {
@@ -23,18 +23,18 @@ namespace PantryProject_Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Ingredient_Table.Add(entity);
+                ctx.Ingredients.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
 
         }
-        public IEnumerable<Ingredient_ListItem> Get_AllIngredients()
+        public IEnumerable<IngredientListItem> GetAll_Ingredients()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Ingredient_Table
+                var query = ctx.Ingredients
                                .Select(
-                                   i => new Ingredient_ListItem
+                                   i => new IngredientListItem
                                    {
                                        Id = i.Id,
                                        Name = i.Name,
@@ -46,13 +46,13 @@ namespace PantryProject_Services
             }
         }
 
-        public Ingredient_Detail Get_IngredientByName(string ingredientName)
+        public IngredientDetail Get_IngredientByName(string ingredientName)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ingredient_Table.Single(i => i.Name == ingredientName);
+                var entity = ctx.Ingredients.Single(i => i.Name == ingredientName);
 
-                var ingredient = new Ingredient_Detail()
+                var ingredient = new IngredientDetail()
                 {
                     Id = entity.Id,
                     Name = entity.Name,
@@ -64,13 +64,13 @@ namespace PantryProject_Services
             }
         }
 
-        public Ingredient_Detail Get_IngredientById(int id)
+        public IngredientDetail Get_IngredientById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ingredient_Table.Single(i => i.Id == id);
+                var entity = ctx.Ingredients.Single(i => i.Id == id);
 
-                var ingredient = new Ingredient_Detail()
+                var ingredient = new IngredientDetail()
                 {
                     Id = entity.Id,
                     Name = entity.Name,
@@ -81,11 +81,11 @@ namespace PantryProject_Services
             }
         }
 
-        public bool Edit_IngredientById(Ingredient_Edit model)
+        public bool Edit_IngredientById(IngredientEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ingredient_Table.SingleOrDefault(i => i.Id == model.Id);
+                var entity = ctx.Ingredients.SingleOrDefault(i => i.Id == model.Id);
 
                 entity.Name = model.NewName;
                 entity.TypeOfIngredient = model.TypeOfIngredient;
@@ -100,11 +100,11 @@ namespace PantryProject_Services
 
         }
 
-        public bool Edit_IngredientByName(Ingredient_Edit model)
+        public bool Edit_IngredientByName(IngredientEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ingredient_Table.SingleOrDefault(i => i.Name == model.OriginalName);
+                var entity = ctx.Ingredients.SingleOrDefault(i => i.Name == model.OriginalName);
 
                 entity.Name = model.NewName;
                 entity.TypeOfIngredient = model.TypeOfIngredient;
@@ -123,9 +123,9 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ingredient_Table.SingleOrDefault(i => i.Name == name);
+                var entity = ctx.Ingredients.SingleOrDefault(i => i.Name == name);
 
-                ctx.Ingredient_Table.Remove(entity);
+                ctx.Ingredients.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
 
@@ -137,7 +137,7 @@ namespace PantryProject_Services
             {
                 var entity =
                     ctx
-                        .Ingredient_Table
+                        .Ingredients
                         .Single(i => i.Id == id);
                 return entity;
             }

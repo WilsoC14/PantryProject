@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Models.PreparedItem
 {
-    public class PreparedItem_ListItem
+    public class PreparedItemListItem
     {
         public int Id { get; set; }
         
         public string Name { get; set; }
-        public PreparedItem_Type TypeOf_PreparedItem { get; set; }
-        public PreparedItem_State StateOf_PreparedItem { get; set; }
+        public PreparedItemType TypeOf_PreparedItem { get; set; }
+        public PreparedItemState StateOf_PreparedItem { get; set; }
     }
 }

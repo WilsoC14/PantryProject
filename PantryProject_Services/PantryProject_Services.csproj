@@ -78,9 +78,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JoiningObjectServices\Join_Ingredient_PreparedItem_Service.cs" />
+    <Compile Include="JoiningObjectServices\Join_IngredientPreparedItemService.cs" />
     <Compile Include="MainObjectServices\IngredientService.cs" />
-    <Compile Include="MainObjectServices\PreparedItem_Service.cs" />
+    <Compile Include="MainObjectServices\PreparedItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

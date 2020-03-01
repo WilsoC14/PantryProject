@@ -8,17 +8,15 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Data.Entities
 {
-    public class Join_Ingredient_PreparedItem
-    {
-        [Key]
+   public class Join_IngredientsInRecipe
+    {[Key]
         public int Id { get; set; }
-        [Required]
         [ForeignKey(nameof(Indv_Ingredient))]
         public int IngredientId { get; set; }
         public virtual Ingredient Indv_Ingredient { get; set; }
-        [Required]
-        [ForeignKey(nameof(Indv_PreparedItem))]
-        public int PreparedItemId { get; set; }
-        public virtual PreparedItem Indv_PreparedItem { get; set; }
+
+        [ForeignKey(nameof(Indv_Recipe))]
+        public int RecipeId { get; set; }
+        public virtual Recipe Indv_Recipe { get; set; }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Models.JoiningModels
 {
-    public class Add_Ingredient_To_PreparedItem_Model
+    public class AddIngredientToPreparedItem
     {
         public int IngredientID { get; set; }
         public int PreparedItemId { get; set; }
@@ -19,7 +19,7 @@ namespace PantryProject.Models.JoiningModels
         [Required]
         public StateOfIngredient IngredientState { get; set; } // when adding an ingredient, you will need to declar what state the ingredient is in for this prepared item
 
-        public List<Ingredient_ListItem> ListOfIngredients { get; set; }
+        public List<IngredientListItem> ListOfIngredients { get; set; }
 
         
     }

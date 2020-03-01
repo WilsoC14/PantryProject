@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Models.PreparedItem
 {
-    public class PreparedItem_Create
+    public class PreparedItemCreate
     {
         public string Name { get; set; }
-        public PreparedItem_Type TypeOf_PreparedItem { get; set; }
-        public PreparedItem_State StateOf_PreparedItem { get; set; }
+        public PreparedItemType TypeOfPreparedItem { get; set; }
+        public PreparedItemState StateOfPreparedItem { get; set; }
         // should a list of ingredients be added to this now, or do we funnel into that through the UI?
     }
 }

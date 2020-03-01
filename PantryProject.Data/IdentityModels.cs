@@ -37,16 +37,16 @@ namespace PantryProject_Data
         }
 
         // base building block
-        public DbSet<Ingredient> Ingredient_Table { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
         
-        public DbSet<PreparedItem> PreparedItem_Table { get; set; }
-        public DbSet<Join_Ingredient_PreparedItem> Join_Ingredient_PreparedItem_Table
+        public DbSet<PreparedItem> PreparedItems { get; set; }
+        public DbSet<Join_IngredientsInPreparedItem> Join_IngredientsInPreparedItems
         { get; set; }
-        public DbSet<Recipe> Recipes_Table { get; set; }
-        public DbSet<Join_Ingredient_Recipe> Join_Ingredient_Recipe_Table { get; set; }
-        public DbSet<Join_PreparedItem_Recipe> Join_PreparedItem_Recipe_Table { get; set; }
-        public DbSet<Menu> Menu_Table { get; set; }
-        public DbSet<Join_Recipe_Menu> Recipes_In_Menu_Table
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Join_IngredientsInRecipe> Join_IngredientsInRecipes { get; set; }
+        public DbSet<Join_PreparedItemsInRecipe> Join_PreparedItemsInRecipes { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<Join_RecipesInMenu> Join_RecipesInMenus
         { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

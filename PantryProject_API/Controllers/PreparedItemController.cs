@@ -25,7 +25,7 @@ namespace PantryProject_API.Controllers
         public IHttpActionResult Get_PreparedItemByName(string name)
         {
             PreparedItem_Service pi_Service = Create_PreparedItemService();
-            var preparedItem = pi_Service.Get_PreparedItem_ByName(name);
+            var preparedItem = pi_Service.Get_PreparedItemByName(name);
             return Ok(preparedItem);
         }
 
@@ -33,12 +33,12 @@ namespace PantryProject_API.Controllers
         public IHttpActionResult Get_PreparedItemById(int id)
         {
             PreparedItem_Service pi_Service = Create_PreparedItemService();
-            var preparedItem = pi_Service.Get_PreparedItem_ById(id);
+            var preparedItem = pi_Service.Get_PreparedItemById(id);
             return Ok(preparedItem);
         }
 
         [HttpPut]
-        public IHttpActionResult Put_PreparedItemByName(PreparedItem_Edit model)
+        public IHttpActionResult Put_PreparedItemByName(PreparedItemEdit model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -54,7 +54,7 @@ namespace PantryProject_API.Controllers
 
         [HttpPost]
 
-        public IHttpActionResult Post_CreatePreparedItem(PreparedItem_Create model)
+        public IHttpActionResult Post_CreatePreparedItem(PreparedItemCreate model)
         { // put in some logic to prevent duplicate ingredient to be created.
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -76,10 +76,10 @@ namespace PantryProject_API.Controllers
         }
 
         [HttpPost] // user would click a button with a PI.id attached to take them to a view to actually build the model to add the ingredient
-        public IHttpActionResult Add_IngredientToPreparedItem(Add_Ingredient_To_PreparedItem_Model model)
+        public IHttpActionResult Add_IngredientToPreparedItem(AddIngredientToPreparedItem model)
         {
             PreparedItem_Service pi_Service = Create_PreparedItemService();
-            if (!pi_Service.Add_IngredientTo_PrepairedItem(model))
+            if (!pi_Service.Add_IngredientToPrepairedItem(model))
                 return InternalServerError();
             return Ok(model);
         }

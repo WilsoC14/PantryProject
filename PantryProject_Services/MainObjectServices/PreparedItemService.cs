@@ -14,29 +14,29 @@ namespace PantryProject_Services
     public class PreparedItem_Service
     {
        public PreparedItem_Service() { }
-        public bool Create_PreparedItem(PreparedItem_Create model)
+        public bool Create_PreparedItem(PreparedItemCreate model)
         {
             PreparedItem entity = new PreparedItem()
             {
                 Name = model.Name,
-                TypeOf_PreparedItem = model.TypeOf_PreparedItem,
-                StateOf_PreparedItem = model.StateOf_PreparedItem
+                TypeOf_PreparedItem = model.TypeOfPreparedItem,
+                StateOf_PreparedItem = model.StateOfPreparedItem
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.PreparedItem_Table.Add(entity);
+                ctx.PreparedItems.Add(entity);
                 return ctx.SaveChanges() == 1;
             }             
         }
 
-        public IEnumerable<PreparedItem_ListItem> Get_AllPreparedItems()
+        public IEnumerable<PreparedItemListItem> Get_AllPreparedItems()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.PreparedItem_Table
+                var query = ctx.PreparedItems
                                .Select(
-                                   i => new PreparedItem_ListItem
+                                   i => new PreparedItemListItem
                                    {
                                        Id = i.Id,
                                        Name = i.Name,
@@ -48,13 +48,13 @@ namespace PantryProject_Services
             }
         }
 
-        public PreparedItem_Detail Get_PreparedItem_ByName(string itemName)
+        public PreparedItemDetail Get_PreparedItemByName(string itemName)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.PreparedItem_Table.Single(i => i.Name == itemName);
+                var entity = ctx.PreparedItems.Single(i => i.Name == itemName);
 
-                var item = new PreparedItem_Detail()
+                var item = new PreparedItemDetail()
                 {
                     Id = entity.Id,
                     Name = entity.Name,
@@ -66,18 +66,18 @@ namespace PantryProject_Services
             }
         }
 
-        public PreparedItem_Detail Get_PreparedItem_ById(int Id)
+        public PreparedItemDetail Get_PreparedItemById(int Id)
         {
             var ingService = new Ingredient_Service();
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.PreparedItem_Table.Single(i => i.Id == Id);
-                var listOfIngredients = new List<Ingredient_ListItem>()
+                var entity = ctx.PreparedItems.Single(i => i.Id == Id);
+                var listOfIngredients = new List<IngredientListItem>()
                 { };
                 foreach(var ingredient in entity.Ingredients_In_PreparedItem)
                 {
                     var ingredientDetail = ingService.Get_IngredientById(ingredient.Id);
-                    var ingredientModel = new Ingredient_ListItem()
+                    var ingredientModel = new IngredientListItem()
                     {
                         Id = ingredient.Id,
                         Name = ingredientDetail.Name,
@@ -85,7 +85,7 @@ namespace PantryProject_Services
                     };
                     listOfIngredients.Add(ingredientModel);
                 }
-                var item = new PreparedItem_Detail()
+                var item = new PreparedItemDetail()
                 {
                     Id = entity.Id,
                     Name = entity.Name,
@@ -98,11 +98,11 @@ namespace PantryProject_Services
             }
         }
 
-        public bool Edit_PreparedItemByName(PreparedItem_Edit model)
+        public bool Edit_PreparedItemByName(PreparedItemEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.PreparedItem_Table.SingleOrDefault(i => i.Name == model.OriginalName);
+                var entity = ctx.PreparedItems.SingleOrDefault(i => i.Name == model.OriginalName);
 
                 entity.Name = model.NewName;
                 entity.TypeOf_PreparedItem = model.TypeOf_PreparedItem;
@@ -120,39 +120,39 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.PreparedItem_Table.SingleOrDefault(i => i.Name == name);
+                var entity = ctx.PreparedItems.SingleOrDefault(i => i.Name == name);
 
-                ctx.PreparedItem_Table.Remove(entity);
+                ctx.PreparedItems.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
 
         }
 
 
-        public bool Add_IngredientTo_PrepairedItem(Add_Ingredient_To_PreparedItem_Model model)
+        public bool Add_IngredientToPrepairedItem(AddIngredientToPreparedItem model)
         {
             using (var ctx = new ApplicationDbContext())
             {   //if ingredient doesn't exist, we'll need to add it to the database
-                var ingredientWithId = ctx.Ingredient_Table.Single(i => i.Name == model.IngredientName);
+                var ingredientWithId = ctx.Ingredients.Single(i => i.Name == model.IngredientName);
 
-                var entity = new Join_Ingredient_PreparedItem()
+                var entity = new Join_IngredientsInPreparedItem()
                 {
                     PreparedItemId = model.PreparedItemId,
                     IngredientId = model.IngredientID
                 };
-                ctx.Join_Ingredient_PreparedItem_Table.Add(entity);
+                ctx.Join_IngredientsInPreparedItems.Add(entity);
 
                 return ctx.SaveChanges() == 1;
 
             }
         }
-        private PreparedItem Get_ActualPreparedItem_ById(int id)
+        private PreparedItem Get_ActualPreparedItemById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .PreparedItem_Table
+                        .PreparedItems
                         .Single(i => i.Id == id);
                 return entity;
             }
