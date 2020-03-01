@@ -13,9 +13,9 @@ namespace PantryProject.Data.Entities
         [Key]
         public int Id { get; set; }
         [Required]
-        [ForeignKey(nameof(Indv_Ingredient))]
+        [ForeignKey(nameof(ActualIngredient))]
         public int IngredientId { get; set; }
-        public virtual Ingredient Indv_Ingredient { get; set; }
+        public virtual Ingredient ActualIngredient { get; set; }
         [Required]
         [ForeignKey(nameof(Indv_PreparedItem))]
         public int PreparedItemId { get; set; }

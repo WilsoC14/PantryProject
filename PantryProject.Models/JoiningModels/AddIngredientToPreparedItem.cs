@@ -1,6 +1,7 @@
 ﻿//using PantryProject.Data;
 using PantryProject.Data;
 using PantryProject.Models.Ingredient;
+using PantryProject.Models.PreparedItem;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,14 +13,14 @@ namespace PantryProject.Models.JoiningModels
 {
     public class AddIngredientToPreparedItem
     {
+        public PreparedItemDetail PreparedItemDetail {get; set;}
         public int IngredientID { get; set; }
-        public int PreparedItemId { get; set; }
-        public string PreparedItemName { get; set; }
+
         public string IngredientName { get; set; }
         [Required]
         public StateOfIngredient IngredientState { get; set; } // when adding an ingredient, you will need to declar what state the ingredient is in for this prepared item
-
-        public List<IngredientListItem> ListOfIngredients { get; set; }
+        
+        
 
         
     }

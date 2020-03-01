@@ -16,16 +16,15 @@ namespace PantryProject_Services.JoiningObjectServices
         // we already have a prepared Item, we are then creating a model that we can add an Ingredient to.
         // the model has the properties for the ingredient, but we are not giving them a value in this method
         // this method probably will only be used to populate views for the WebPages assembly
-        public AddIngredientToPreparedItem Get_AddIngredientToPreparedItem(int PI_Id)
+        public AddIngredientToPreparedItem Get_AddIngredientToPreparedItem(int PI_Id, int ingredientId)
         {
            
             var PI_Service = new PreparedItem_Service();
             var PI_Detail = PI_Service.Get_PreparedItemById(PI_Id);
             return new AddIngredientToPreparedItem()
             {
-                PreparedItemId = PI_Detail.Id,
-                PreparedItemName = PI_Detail.Name,
-                ListOfIngredients = PI_Detail.ListOfIngredients
+                PreparedItemDetail = PI_Detail,
+                IngredientID = ingredientId
             };
         }
 
@@ -34,7 +33,7 @@ namespace PantryProject_Services.JoiningObjectServices
             var entity = new Join_IngredientsInPreparedItem()
             {
                 IngredientId = model.IngredientID,
-                PreparedItemId = model.PreparedItemId
+                PreparedItemId = model.PreparedItemDetail.Id,
             };
             using (var ctx = new ApplicationDbContext())
             {

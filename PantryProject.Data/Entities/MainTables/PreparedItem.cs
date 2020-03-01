@@ -16,10 +16,10 @@ namespace PantryProject.Data.Entities
         [Required]
         public string Name { get; set; }
         [Required]
-        public PreparedItemType TypeOf_PreparedItem { get; set; }
+        public PreparedItemType TypeOfPreparedItem { get; set; }
         [Required]
-        public PreparedItemState StateOf_PreparedItem { get; set; }
-        public virtual ICollection<Join_IngredientsInPreparedItem> Ingredients_In_PreparedItem { get; set; }
-        public virtual ICollection<Join_PreparedItemsInRecipe> Recipes_With_PreparedItem { get; set; }
+        public PreparedItemState StateOfPreparedItem { get; set; }
+        public virtual ICollection<Join_IngredientsInPreparedItem> Ingredients { get; set; }
+        public virtual ICollection<Join_PreparedItemsInRecipe> RecipesWithPreparedItem { get; set; }
     }
 }

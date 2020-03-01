@@ -19,8 +19,8 @@ namespace PantryProject_Services
             PreparedItem entity = new PreparedItem()
             {
                 Name = model.Name,
-                TypeOf_PreparedItem = model.TypeOfPreparedItem,
-                StateOf_PreparedItem = model.StateOfPreparedItem
+                TypeOfPreparedItem = model.TypeOfPreparedItem,
+                StateOfPreparedItem = model.StateOfPreparedItem
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -40,8 +40,8 @@ namespace PantryProject_Services
                                    {
                                        Id = i.Id,
                                        Name = i.Name,
-                                       TypeOf_PreparedItem = i.TypeOf_PreparedItem,
-                                       StateOf_PreparedItem = i.StateOf_PreparedItem
+                                       TypeOf_PreparedItem = i.TypeOfPreparedItem,
+                                       StateOf_PreparedItem = i.StateOfPreparedItem
                                    }
                                    );
                 return query.ToList();
@@ -58,8 +58,8 @@ namespace PantryProject_Services
                 {
                     Id = entity.Id,
                     Name = entity.Name,
-                    TypeOf_PreparedItem = entity.TypeOf_PreparedItem,
-                    StateOf_PreparedItem = entity.StateOf_PreparedItem
+                    TypeOf_PreparedItem = entity.TypeOfPreparedItem,
+                    StateOf_PreparedItem = entity.StateOfPreparedItem
                 };
                 return item;
 
@@ -68,20 +68,21 @@ namespace PantryProject_Services
 
         public PreparedItemDetail Get_PreparedItemById(int Id)
         {
-            var ingService = new Ingredient_Service();
-            using (var ctx = new ApplicationDbContext())
-            {
+            var ingredientService = new Ingredient_Service();
+            using (var ctx = new ApplicationDbContext())                
+            {   // get prepared item by id, will need a trycatch if query returns null
                 var entity = ctx.PreparedItems.Single(i => i.Id == Id);
+                // creates empty list to populate with ingredients.
                 var listOfIngredients = new List<IngredientListItem>()
                 { };
-                foreach(var ingredient in entity.Ingredients_In_PreparedItem)
+                foreach(var ingredient in entity.Ingredients)
                 {
-                    var ingredientDetail = ingService.Get_IngredientById(ingredient.Id);
                     var ingredientModel = new IngredientListItem()
                     {
-                        Id = ingredient.Id,
-                        Name = ingredientDetail.Name,
-
+                        Id = ingredient.ActualIngredient.Id,
+                        Name = ingredient.ActualIngredient.Name,
+                        TypeOfIngredient = ingredient.ActualIngredient.TypeOfIngredient,
+                        IngredientState = ingredient.ActualIngredient.IngredientState,                                
                     };
                     listOfIngredients.Add(ingredientModel);
                 }
@@ -89,12 +90,11 @@ namespace PantryProject_Services
                 {
                     Id = entity.Id,
                     Name = entity.Name,
-                    TypeOf_PreparedItem = entity.TypeOf_PreparedItem,
-                    StateOf_PreparedItem = entity.StateOf_PreparedItem,
+                    TypeOf_PreparedItem = entity.TypeOfPreparedItem,
+                    StateOf_PreparedItem = entity.StateOfPreparedItem,
                     ListOfIngredients = listOfIngredients
                 };
                 return item;
-
             }
         }
 
@@ -105,8 +105,8 @@ namespace PantryProject_Services
                 var entity = ctx.PreparedItems.SingleOrDefault(i => i.Name == model.OriginalName);
 
                 entity.Name = model.NewName;
-                entity.TypeOf_PreparedItem = model.TypeOf_PreparedItem;
-                entity.StateOf_PreparedItem = model.StateOf_PreparedItem;
+                entity.TypeOfPreparedItem = model.TypeOf_PreparedItem;
+                entity.StateOfPreparedItem = model.StateOf_PreparedItem;
 
                 if (!ctx.ChangeTracker.HasChanges())
                 {
@@ -137,7 +137,7 @@ namespace PantryProject_Services
 
                 var entity = new Join_IngredientsInPreparedItem()
                 {
-                    PreparedItemId = model.PreparedItemId,
+                    
                     IngredientId = model.IngredientID
                 };
                 ctx.Join_IngredientsInPreparedItems.Add(entity);
