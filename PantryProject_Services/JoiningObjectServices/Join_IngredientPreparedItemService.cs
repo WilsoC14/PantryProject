@@ -23,8 +23,8 @@ namespace PantryProject_Services.JoiningObjectServices
             var PI_Detail = PI_Service.Get_PreparedItemById(PI_Id);
             return new AddIngredientToPreparedItem()
             {
-                PreparedItemDetail = PI_Detail,
-                IngredientID = ingredientId
+                //PreparedItemDetail = PI_Detail,
+                IngredientId = ingredientId
             };
         }
 
@@ -32,8 +32,8 @@ namespace PantryProject_Services.JoiningObjectServices
         {
             var entity = new Join_IngredientsInPreparedItem()
             {
-                IngredientId = model.IngredientID,
-                PreparedItemId = model.PreparedItemDetail.Id,
+                IngredientId = model.IngredientId,
+                PreparedItemId = model.PreparedItemId
             };
             using (var ctx = new ApplicationDbContext())
             {

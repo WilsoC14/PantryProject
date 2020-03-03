@@ -10,7 +10,8 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace PantryProject_API.Controllers
-{
+{       [Authorize]
+        [RoutePrefix("api/PreparedItem")]
     public class PreparedItemController : ApiController
     {
         [HttpGet]
@@ -58,7 +59,7 @@ namespace PantryProject_API.Controllers
         { // put in some logic to prevent duplicate ingredient to be created.
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-           
+
             PreparedItem_Service pi_Service = Create_PreparedItemService();
 
             if (!pi_Service.Create_PreparedItem(model))
@@ -75,7 +76,8 @@ namespace PantryProject_API.Controllers
             return Ok();
         }
 
-        [HttpPost] // user would click a button with a PI.id attached to take them to a view to actually build the model to add the ingredient
+        [HttpPost]
+        [Route("AddIngredient")]// user would click a button with a PI.id attached to take them to a view to actually build the model to add the ingredient
         public IHttpActionResult Add_IngredientToPreparedItem(AddIngredientToPreparedItem model)
         {
             PreparedItem_Service pi_Service = Create_PreparedItemService();
