@@ -50,20 +50,48 @@ namespace PantryProject_Services
 
         public PreparedItemDetail Get_PreparedItemByName(string itemName)
         {
+            var ingredientService = new Ingredient_Service();
             using (var ctx = new ApplicationDbContext())
-            {
+            {   // get prepared item by id, will need a trycatch if query returns null
                 var entity = ctx.PreparedItems.Single(i => i.Name == itemName);
-
+                // creates empty list to populate with ingredients.
+                var listOfIngredients = new List<IngredientListItem>()
+                { };
+                foreach (var ingredient in entity.Ingredients)
+                {
+                    var ingredientModel = new IngredientListItem()
+                    {
+                        Id = ingredient.ActualIngredient.Id,
+                        Name = ingredient.ActualIngredient.Name,
+                        TypeOfIngredient = ingredient.ActualIngredient.TypeOfIngredient,
+                        IngredientState = ingredient.ActualIngredient.IngredientState,
+                    };
+                    listOfIngredients.Add(ingredientModel);
+                }
                 var item = new PreparedItemDetail()
                 {
                     Id = entity.Id,
                     Name = entity.Name,
                     TypeOf_PreparedItem = entity.TypeOfPreparedItem,
-                    StateOf_PreparedItem = entity.StateOfPreparedItem
+                    StateOf_PreparedItem = entity.StateOfPreparedItem,
+                    ListOfIngredients = listOfIngredients
                 };
                 return item;
-
             }
+            //using (var ctx = new ApplicationDbContext())
+            //{
+            //    var entity = ctx.PreparedItems.Single(i => i.Name == itemName);
+
+            //    var item = new PreparedItemDetail()
+            //    {
+            //        Id = entity.Id,
+            //        Name = entity.Name,
+            //        TypeOf_PreparedItem = entity.TypeOfPreparedItem,
+            //        StateOf_PreparedItem = entity.StateOfPreparedItem
+            //    };
+            //    return item;
+
+            //}
         }
 
         public PreparedItemDetail Get_PreparedItemById(int Id)
@@ -146,6 +174,19 @@ namespace PantryProject_Services
 
             }
         }
+
+        public bool Delete_IngredientFromPreparedItem(PreparedItemDetail item, string ingredientToDelete)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Join_IngredientsInPreparedItems
+                                .Single(i => i.PreparedItemId == item.Id && i.ActualIngredient.Name == ingredientToDelete);
+                ctx.Join_IngredientsInPreparedItems.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
         private PreparedItem Get_ActualPreparedItemById(int id)
         {
             using (var ctx = new ApplicationDbContext())

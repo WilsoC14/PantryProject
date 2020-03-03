@@ -85,6 +85,19 @@ namespace PantryProject_API.Controllers
                 return InternalServerError();
             return Ok(model);
         }
+
+        [HttpDelete]
+        [Route("RemoveIngredient")]
+        public IHttpActionResult Delete_IngredientFromPreparedItem(string preparedItemName, string ingredientToDelete)
+        {
+            PreparedItem_Service pi_Service = Create_PreparedItemService();
+            var piDetail = pi_Service.Get_PreparedItemByName(preparedItemName);
+            if (!pi_Service.Delete_IngredientFromPreparedItem(piDetail, ingredientToDelete))
+                return InternalServerError();
+             piDetail = pi_Service.Get_PreparedItemByName(preparedItemName);
+            return Ok(piDetail);
+        }
+
         private PreparedItem_Service Create_PreparedItemService()
         {
             return new PreparedItem_Service();

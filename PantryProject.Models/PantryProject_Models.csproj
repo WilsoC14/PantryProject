@@ -83,6 +83,7 @@
     <Compile Include="Ingredient\IngredientEdit.cs" />
     <Compile Include="Ingredient\IngredientListItem.cs" />
     <Compile Include="JoiningModels\AddIngredientToPreparedItem.cs" />
+    <Compile Include="JoiningModels\DeleteIngredientFromPreparedItem.cs" />
     <Compile Include="Menu\Menu_Create.cs" />
     <Compile Include="Menu\Menu_Detail.cs" />
     <Compile Include="Menu\Menu_Edit.cs" />
