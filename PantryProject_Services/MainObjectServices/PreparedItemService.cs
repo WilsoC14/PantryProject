@@ -174,7 +174,7 @@ namespace PantryProject_Services
 
                 var entity = new Join_IngredientsInPreparedItem()
                 {
-                    PreparedItemId = model.PreparedItemId,
+                   // PreparedItemId = model.PreparedItemId,
                     IngredientId = ingredientWithId.Id
                 };
                 ctx.Join_IngredientsInPreparedItems.Add(entity);

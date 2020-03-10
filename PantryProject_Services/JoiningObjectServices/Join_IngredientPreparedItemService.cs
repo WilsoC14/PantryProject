@@ -33,7 +33,7 @@ namespace PantryProject_Services.JoiningObjectServices
             var entity = new Join_IngredientsInPreparedItem()
             {
                 IngredientId = model.IngredientId,
-                PreparedItemId = model.PreparedItemId
+               // PreparedItemId = model.PreparedItemId
             };
             using (var ctx = new ApplicationDbContext())
             {
