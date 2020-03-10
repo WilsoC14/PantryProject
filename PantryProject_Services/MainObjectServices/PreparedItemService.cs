@@ -78,25 +78,12 @@ namespace PantryProject_Services
                 };
                 return item;
             }
-            //using (var ctx = new ApplicationDbContext())
-            //{
-            //    var entity = ctx.PreparedItems.Single(i => i.Name == itemName);
-
-            //    var item = new PreparedItemDetail()
-            //    {
-            //        Id = entity.Id,
-            //        Name = entity.Name,
-            //        TypeOf_PreparedItem = entity.TypeOfPreparedItem,
-            //        StateOf_PreparedItem = entity.StateOfPreparedItem
-            //    };
-            //    return item;
-
-            //}
+    
         }
 
         public PreparedItemDetail Get_PreparedItemById(int Id)
         {
-            var ingredientService = new Ingredient_Service();
+            //var ingredientService = new Ingredient_Service();
             using (var ctx = new ApplicationDbContext())                
             {   // get prepared item by id, will need a trycatch if query returns null
                 var entity = ctx.PreparedItems.Single(i => i.Id == Id);
@@ -126,6 +113,28 @@ namespace PantryProject_Services
             }
         }
 
+        public bool PreparedItemExists(string itemName)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.PreparedItems.Any(i => i.Name == itemName);
+            }
+        }
+        public bool IngredientInPreparedItemExists(PreparedItemDetail item, string ingredientToAdd, string ingredientToAddState)
+        {
+            
+
+            foreach(var ingredient in item.ListOfIngredients)
+            {
+                PantryProject.Data.StateOfIngredient ingredientToAddStateAsEnum;
+                Enum.TryParse(ingredientToAddState, true, out ingredientToAddStateAsEnum);
+                
+                if (ingredient.Name == ingredientToAdd && ingredient.IngredientState == ingredientToAddStateAsEnum)
+                    return true;
+                
+            }
+                return false;
+        }
         public bool Edit_PreparedItemByName(PreparedItemEdit model)
         {
             using (var ctx = new ApplicationDbContext())

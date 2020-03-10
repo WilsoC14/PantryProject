@@ -10,8 +10,9 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace PantryProject_API.Controllers
-{       [Authorize]
-        [RoutePrefix("api/PreparedItem")]
+{
+    [Authorize]
+    [RoutePrefix("api/PreparedItem")]
     public class PreparedItemController : ApiController
     {
         [HttpGet]
@@ -57,10 +58,14 @@ namespace PantryProject_API.Controllers
 
         public IHttpActionResult Post_CreatePreparedItem(PreparedItemCreate model)
         { // put in some logic to prevent duplicate ingredient to be created.
+            PreparedItem_Service pi_Service = Create_PreparedItemService();
+            if (pi_Service.PreparedItemExists(model.Name))
+            {
+                return BadRequest("Item Already Exists");
+            }
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            PreparedItem_Service pi_Service = Create_PreparedItemService();
 
             if (!pi_Service.Create_PreparedItem(model))
                 return InternalServerError();
@@ -73,6 +78,24 @@ namespace PantryProject_API.Controllers
             PreparedItem_Service pi_Service = Create_PreparedItemService();
             if (!pi_Service.Delete_PreparedItemByName(name))
                 return InternalServerError();
+            return Ok();
+        }
+        public IHttpActionResult Get_AddIngredientToPreparedItemModel(string preparedItemName, string ingredientName, string ingredientState)
+        {
+            PreparedItem_Service pi_Service = Create_PreparedItemService();
+            var itemDetail = pi_Service.Get_PreparedItemByName(preparedItemName);
+            var exists = pi_Service.IngredientInPreparedItemExists(itemDetail, ingredientName, ingredientState);
+            if(!exists)
+            {
+                var model = new AddIngredientToPreparedItem()
+                {
+                    IngredientName = ingredientName,
+                   // IngredientState = ingredientState,
+                    PreparedItemDetail = itemDetail
+                };
+            
+            }
+
             return Ok();
         }
 
@@ -94,7 +117,7 @@ namespace PantryProject_API.Controllers
             var piDetail = pi_Service.Get_PreparedItemByName(preparedItemName);
             if (!pi_Service.Delete_IngredientFromPreparedItem(piDetail, ingredientToDelete))
                 return InternalServerError();
-             piDetail = pi_Service.Get_PreparedItemByName(preparedItemName);
+            piDetail = pi_Service.Get_PreparedItemByName(preparedItemName);
             return Ok(piDetail);
         }
 

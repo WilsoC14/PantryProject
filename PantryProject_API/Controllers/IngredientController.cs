@@ -38,9 +38,13 @@ namespace PantryProject_API.Controllers
        
         public IHttpActionResult Post_CreateIngredient(IngredientCreate model)
         { // put in some logic to prevent duplicate ingredient to be created.
+            var ingredientService = CreateIngredientService();
+            if (ingredientService.IngredientExists(model.Name))
+            {
+                return BadRequest("Ingredient Already Exists");
+            }
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var ingredientService = CreateIngredientService();
 
             if (!ingredientService.Create_Ingredient(model))
                 return InternalServerError();

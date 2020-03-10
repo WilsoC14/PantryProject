@@ -87,28 +87,11 @@
     <Compile Include="Entities\JoiningTables\Join_RecipesInMenu.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Entities\MainTables\Ingredient.cs" />
-    <Compile Include="Migrations\202002281756079_InitialCreate.cs" />
-    <Compile Include="Migrations\202002281756079_InitialCreate.Designer.cs">
-      <DependentUpon>202002281756079_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003032036480_ChangedEnumNames.cs" />
-    <Compile Include="Migrations\202003032036480_ChangedEnumNames.Designer.cs">
-      <DependentUpon>202003032036480_ChangedEnumNames.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002281756079_InitialCreate.resx">
-      <DependentUpon>202002281756079_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003032036480_ChangedEnumNames.resx">
-      <DependentUpon>202003032036480_ChangedEnumNames.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

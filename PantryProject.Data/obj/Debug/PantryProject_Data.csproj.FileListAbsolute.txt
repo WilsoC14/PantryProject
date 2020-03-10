@@ -28,6 +28,3 @@ C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject.Data.dll
 C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject.Data.pdb
 C:\Coding\C#\PantryProject\PantryProject.Data\bin\Debug\System.Net.Http.Formatting.dll
 C:\Coding\C#\PantryProject\PantryProject.Data\bin\Debug\System.Net.Http.Formatting.xml
-C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject.Data.Migrations.InitialCreate.resources
-C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject_Data.csproj.GenerateResource.cache
-C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject.Data.Migrations.ChangedEnumNames.resources

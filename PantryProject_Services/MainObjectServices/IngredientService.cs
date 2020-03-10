@@ -64,6 +64,13 @@ namespace PantryProject_Services
             }
         }
 
+        public bool IngredientExists(string ingredientName)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.Ingredients.Any(i => i.Name == ingredientName);
+            }
+        }
         public IngredientDetail Get_IngredientById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -91,7 +98,7 @@ namespace PantryProject_Services
                 entity.TypeOfIngredient = model.TypeOfIngredient;
                 entity.IngredientState = model.IngredientState;
 
-                if(!ctx.ChangeTracker.HasChanges())
+                if (!ctx.ChangeTracker.HasChanges())
                 {
                     return true;
                 }

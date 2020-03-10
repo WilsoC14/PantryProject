@@ -13,8 +13,8 @@ namespace PantryProject.Models.JoiningModels
 {
     public class AddIngredientToPreparedItem
     {
-       // public PreparedItemDetail PreparedItemDetail {get; set;}
-       public int PreparedItemId { get; set; }
+        public PreparedItemDetail PreparedItemDetail {get; set;}
+       //public int PreparedItemId { get; set; }
         public int IngredientId { get; set; }
         
         public string IngredientName { get; set; }
