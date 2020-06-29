@@ -138,6 +138,18 @@ namespace PantryProject_Services
 
         }
 
+        public bool Delete_IngredientById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ingredients.SingleOrDefault(i => i.Id == id);
+
+                ctx.Ingredients.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+
         private Ingredient Get_ActualIngredient_ById(int id)
         {
             using (var ctx = new ApplicationDbContext())
