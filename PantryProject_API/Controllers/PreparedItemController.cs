@@ -34,13 +34,25 @@ namespace PantryProject_API.Controllers
         {
             return Ok(_piService.Get_PreparedItemById(id));
         }
-
+        [Route("PutPreparedItemByName")]
         [HttpPut]
         public IHttpActionResult Put_PreparedItemByName(PreparedItemEdit model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            if (!_piService.Edit_PreparedItemByName(model)) 
+            if (!_piService.Edit_PreparedItemByName(model))
+                return InternalServerError();
+            return Ok();
+
+        }
+
+        [Route("PutPreparedItemById")]
+        [HttpPut]
+        public IHttpActionResult Put_PreparedItemById(PreparedItemEdit model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            if (!_piService.Edit_PreparedItemById(model)) 
                 return InternalServerError();
             return Ok();
 
@@ -69,9 +81,18 @@ namespace PantryProject_API.Controllers
                 return InternalServerError();
             return Ok();
         }
+
+        [HttpDelete]
+        public IHttpActionResult Delete_PreparedItemById(int id)
+        {
+            if (!_piService.Delete_PreparedItemById(id))
+                return InternalServerError();
+            return Ok();
+        }
+
         //public IHttpActionResult Get_AddIngredientToPreparedItemModel(string preparedItemName, string ingredientName, string ingredientState)
         //{
-            
+
         //    var itemDetail = _piService.Get_PreparedItemByName(preparedItemName);
         //    var exists = _piService.IngredientInPreparedItemExists(itemDetail, ingredientName, ingredientState);
         //    if(!exists)
@@ -82,7 +103,7 @@ namespace PantryProject_API.Controllers
         //           // IngredientState = ingredientState,
         //            PreparedItemDetail = itemDetail
         //        };
-            
+
         //    }
 
         //    return Ok();

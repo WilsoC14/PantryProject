@@ -14,9 +14,9 @@ namespace PantryProject.Models.PreparedItem
         public string OriginalName { get; set; }
         public string NewName { get; set; }
 
-        public PreparedItemType TypeOf_PreparedItem { get; set; }
+        public PreparedItemType TypeOfPreparedItem { get; set; }
 
-        public PreparedItemState StateOf_PreparedItem { get; set; }
+        public PreparedItemState StateOfPreparedItem { get; set; }
 
         public List<IngredientListItem> ListOfIngredients { get; set; }
     }

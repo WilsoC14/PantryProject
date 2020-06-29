@@ -40,8 +40,8 @@ namespace PantryProject_Services
                                    {
                                        Id = i.Id,
                                        Name = i.Name,
-                                       TypeOf_PreparedItem = i.TypeOfPreparedItem,
-                                       StateOf_PreparedItem = i.StateOfPreparedItem
+                                       TypeOfPreparedItem = i.TypeOfPreparedItem,
+                                       StateOfPreparedItem = i.StateOfPreparedItem
                                    }
                                    );
                 return query.ToList();
@@ -72,8 +72,8 @@ namespace PantryProject_Services
                 {
                     Id = entity.Id,
                     Name = entity.Name,
-                    TypeOf_PreparedItem = entity.TypeOfPreparedItem,
-                    StateOf_PreparedItem = entity.StateOfPreparedItem,
+                    TypeOfPreparedItem = entity.TypeOfPreparedItem,
+                    StateOfPreparedItem = entity.StateOfPreparedItem,
                     ListOfIngredients = listOfIngredients
                 };
                 return item;
@@ -105,8 +105,8 @@ namespace PantryProject_Services
                 {
                     Id = entity.Id,
                     Name = entity.Name,
-                    TypeOf_PreparedItem = entity.TypeOfPreparedItem,
-                    StateOf_PreparedItem = entity.StateOfPreparedItem,
+                    TypeOfPreparedItem = entity.TypeOfPreparedItem,
+                    StateOfPreparedItem = entity.StateOfPreparedItem,
                     ListOfIngredients = listOfIngredients
                 };
                 return item;
@@ -135,6 +135,26 @@ namespace PantryProject_Services
             }
                 return false;
         }
+
+        public bool Edit_PreparedItemById(PreparedItemEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.PreparedItems.SingleOrDefault(i => i.Id == model.Id);
+
+                entity.Name = model.NewName; // validation for if new name is null
+                entity.TypeOfPreparedItem = model.TypeOfPreparedItem;
+                entity.StateOfPreparedItem = model.StateOfPreparedItem;
+
+                if (!ctx.ChangeTracker.HasChanges())
+                {
+                    return true;
+                }
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+
         public bool Edit_PreparedItemByName(PreparedItemEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -142,8 +162,8 @@ namespace PantryProject_Services
                 var entity = ctx.PreparedItems.SingleOrDefault(i => i.Name == model.OriginalName);
 
                 entity.Name = model.NewName;
-                entity.TypeOfPreparedItem = model.TypeOf_PreparedItem;
-                entity.StateOfPreparedItem = model.StateOf_PreparedItem;
+                entity.TypeOfPreparedItem = model.TypeOfPreparedItem;
+                entity.StateOfPreparedItem = model.StateOfPreparedItem;
 
                 if (!ctx.ChangeTracker.HasChanges())
                 {
@@ -162,9 +182,17 @@ namespace PantryProject_Services
                 ctx.PreparedItems.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
-
         }
+        public bool Delete_PreparedItemById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.PreparedItems.SingleOrDefault(i => i.Id == id);
 
+                ctx.PreparedItems.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
         public bool Add_IngredientToPrepairedItem(AddIngredientToPreparedItem model)
         {

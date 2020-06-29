@@ -12,7 +12,7 @@ namespace PantryProject.Models.PreparedItem
         public int Id { get; set; }
         
         public string Name { get; set; }
-        public PreparedItemType TypeOf_PreparedItem { get; set; }
-        public PreparedItemState StateOf_PreparedItem { get; set; }
+        public PreparedItemType TypeOfPreparedItem { get; set; }
+        public PreparedItemState StateOfPreparedItem { get; set; }
     }
 }
