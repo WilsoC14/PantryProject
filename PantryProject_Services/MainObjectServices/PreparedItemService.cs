@@ -50,7 +50,7 @@ namespace PantryProject_Services
 
         public PreparedItemDetail Get_PreparedItemByName(string itemName)
         {
-            var ingredientService = new Ingredient_Service();
+            var ingredientService = new IngredientService();
             using (var ctx = new ApplicationDbContext())
             {   // get prepared item by id, will need a trycatch if query returns null
                 var entity = ctx.PreparedItems.Single(i => i.Name == itemName);

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace PantryProject_Services
 {
-    public class Ingredient_Service
+    public class IngredientService
     {
-        public Ingredient_Service() { }
+        public IngredientService() { }
 
         public bool Create_Ingredient(IngredientCreate ingredientToCreate)
         {
