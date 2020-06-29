@@ -1,5 +1,4 @@
 C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject_Data.csprojAssemblyReference.cache
-C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject_Data.csproj.CoreCompileInputs.cache
 C:\Coding\C#\PantryProject\PantryProject.Data\bin\Debug\PantryProject.Data.dll.config
 C:\Coding\C#\PantryProject\PantryProject.Data\bin\Debug\PantryProject.Data.dll
 C:\Coding\C#\PantryProject\PantryProject.Data\bin\Debug\PantryProject.Data.pdb
@@ -27,3 +26,5 @@ C:\Coding\C#\PantryProject\PantryProject.Data\bin\Debug\Newtonsoft.Json.xml
 C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject_Data.csproj.CopyComplete
 C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject.Data.dll
 C:\Coding\C#\PantryProject\PantryProject.Data\obj\Debug\PantryProject.Data.pdb
+C:\Coding\C#\PantryProject\PantryProject.Data\bin\Debug\System.Net.Http.Formatting.dll
+C:\Coding\C#\PantryProject\PantryProject.Data\bin\Debug\System.Net.Http.Formatting.xml
