@@ -11,7 +11,7 @@ namespace PantryProject.Models.JoiningModels
         public int PreparedItemId { get; set; }
         public int IngredientId { get; set; }
 
-        public string IngredientName { get; set; }
+        //public string IngredientName { get; set; }
         
     }
 }

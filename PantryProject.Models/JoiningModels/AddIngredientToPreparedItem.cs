@@ -13,12 +13,12 @@ namespace PantryProject.Models.JoiningModels
 {
     public class AddIngredientToPreparedItem
     {
-        public PreparedItemDetail PreparedItemDetail {get; set;}
-       //public int PreparedItemId { get; set; }
+       // public PreparedItemDetail PreparedItemDetail {get; set;}
+        public int PreparedItemId { get; set; }
         public int IngredientId { get; set; }
         
         public string IngredientName { get; set; }
-        [Required]
+       // [Required]
         public StateOfIngredient IngredientState { get; set; } // when adding an ingredient, you will need to declar what state the ingredient is in for this prepared item
         
         

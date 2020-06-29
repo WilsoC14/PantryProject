@@ -198,12 +198,12 @@ namespace PantryProject_Services
         {
             using (var ctx = new ApplicationDbContext())
             {   //if ingredient doesn't exist, we'll need to add it to the database
-                var ingredientWithId = ctx.Ingredients.Single(i => i.Name == model.IngredientName);
+               // var ingredientWithId = ctx.Ingredients.Single(i => i.Id == model.IngredientId);
 
                 var entity = new Join_IngredientsInPreparedItem()
                 {
-                   // PreparedItemId = model.PreparedItemId,
-                    IngredientId = ingredientWithId.Id
+                    PreparedItemId = model.PreparedItemId,
+                    IngredientId = model.IngredientId
                 };
                 ctx.Join_IngredientsInPreparedItems.Add(entity);
 
@@ -212,12 +212,12 @@ namespace PantryProject_Services
             }
         }
 
-        public bool Delete_IngredientFromPreparedItem(PreparedItemDetail item, string ingredientToDelete)
+        public bool Delete_IngredientFromPreparedItem(PreparedItemDetail item, int ingredientId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Join_IngredientsInPreparedItems
-                                .Single(i => i.PreparedItemId == item.Id && i.ActualIngredient.Name == ingredientToDelete);
+                                .Single(i => i.PreparedItemId == item.Id && i.ActualIngredient.Id == ingredientId);
                 ctx.Join_IngredientsInPreparedItems.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
