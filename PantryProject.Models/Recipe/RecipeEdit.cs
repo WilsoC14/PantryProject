@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Models.Recipe
 {
-    public class Recipe_Edit
+    public class RecipeEdit
     {
+        public int Id { get; set; } // should probably be read only
+        public string Name { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Models.Menu
 {
-    public class Menu_ListItem
+    public class MenuEdit
     {
     }
 }

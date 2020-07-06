@@ -11,12 +11,12 @@ namespace PantryProject.Data.Entities
     {
         public int Id { get; set; }
 
-        [ForeignKey(nameof(Indv_Recipe))]
+        [ForeignKey(nameof(Recipe))]
         public int RecipeId { get; set; }
-        public virtual Recipe Indv_Recipe { get; set; }
+        public virtual Recipe Recipe { get; set; }
 
-        [ForeignKey(nameof(Indv_Menu))]
+        [ForeignKey(nameof(Menu))]
         public int MenuId { get; set; }
-        public virtual Menu Indv_Menu { get; set; }
+        public virtual Menu Menu { get; set; }
     }
 }

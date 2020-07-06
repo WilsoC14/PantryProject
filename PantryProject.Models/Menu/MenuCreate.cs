@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PantryProject.Models.Recipe
+namespace PantryProject.Models.Menu
 {
-    public class Recipe_Create
+    public class MenuCreate
     {
     }
 }

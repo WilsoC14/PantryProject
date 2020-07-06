@@ -87,19 +87,19 @@
     <Compile Include="Ingredient\IngredientListItem.cs" />
     <Compile Include="JoiningModels\AddIngredientToPreparedItem.cs" />
     <Compile Include="JoiningModels\DeleteIngredientFromPreparedItem.cs" />
-    <Compile Include="Menu\Menu_Create.cs" />
-    <Compile Include="Menu\Menu_Detail.cs" />
-    <Compile Include="Menu\Menu_Edit.cs" />
-    <Compile Include="Menu\Menu_ListItem.cs" />
+    <Compile Include="Menu\MenuCreate.cs" />
+    <Compile Include="Menu\MenuDetail.cs" />
+    <Compile Include="Menu\MenuEdit.cs" />
+    <Compile Include="Menu\MenuListItem.cs" />
     <Compile Include="PreparedItem\PreparedItemCreate.cs" />
     <Compile Include="PreparedItem\PreparedItemDetail.cs" />
     <Compile Include="PreparedItem\PreparedItemEdit.cs" />
     <Compile Include="PreparedItem\PreparedItemListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recipe\Recipe_Create.cs" />
-    <Compile Include="Recipe\Recipe_Detail.cs" />
-    <Compile Include="Recipe\Recipe_Edit.cs" />
-    <Compile Include="Recipe\Recipe_ListItem.cs" />
+    <Compile Include="Recipe\RecipeCreate.cs" />
+    <Compile Include="Recipe\RecipeDetail.cs" />
+    <Compile Include="Recipe\RecipeEdit.cs" />
+    <Compile Include="Recipe\RecipeListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

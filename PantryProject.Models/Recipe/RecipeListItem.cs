@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace PantryProject.Models.Recipe
 {
-    public class Recipe_ListItem
+    public class RecipeListItem
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
