@@ -8,5 +8,6 @@ namespace PantryProject.Models.Menu
 {
     public class MenuCreate
     {
+        public string Name { get; set; }
     }
 }

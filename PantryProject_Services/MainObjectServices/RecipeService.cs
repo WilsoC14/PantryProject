@@ -101,7 +101,7 @@ namespace PantryProject_Services.MainObjectServices
 
         public bool EditRecipe(RecipeEdit model)
         {
-            using (var ctx = new ApplicationDbContext)
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Recipes.SingleOrDefault(r => r.Id == model.Id);
                 entity.Name = model.Name;
