@@ -82,6 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JoiningObjectServices\Join_IngredientPreparedItemService.cs" />
+    <Compile Include="JoiningObjectServices\Join_IngredientRecipeService.cs" />
+    <Compile Include="JoiningObjectServices\Join_PreparedItemRecipeService.cs" />
+    <Compile Include="JoiningObjectServices\Join_RecipeMenuService.cs" />
     <Compile Include="MainObjectServices\IngredientService.cs" />
     <Compile Include="MainObjectServices\MenuService.cs" />
     <Compile Include="MainObjectServices\PreparedItemService.cs" />
