@@ -33,7 +33,7 @@ namespace PantryProject_API.Controllers
                 return InternalServerError();
             return Ok();
         }
-
+        [HttpPut]
         public IHttpActionResult PutRecipe(RecipeEdit model)
         {
             if (!ModelState.IsValid)
@@ -43,7 +43,7 @@ namespace PantryProject_API.Controllers
             return Ok();
         }
         [HttpDelete]
-        public IHttpActionResult Delete_PreparedItemById(int id)
+        public IHttpActionResult DeleteRecipe(int id)
         {
             if (!_recipeService.DeleteRecipe(id))
                 return InternalServerError();
