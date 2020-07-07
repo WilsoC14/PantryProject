@@ -1,4 +1,5 @@
 ﻿using PantryProject.Models.Recipe;
+using PantryProject_Services.JoiningObjectServices;
 using PantryProject_Services.MainObjectServices;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace PantryProject_API.Controllers
     public class RecipeController : ApiController
     {
         private readonly RecipeService _recipeService = new RecipeService();
-
+        private readonly Join_IngredientRecipeService _ingredientInRecipeService = new Join_IngredientRecipeService();
+        private readonly Join_PreparedItemRecipeService _preparedItemInRecipeService = new Join_PreparedItemRecipeService();
         [HttpGet]
         public IHttpActionResult GetAllRecipes()
         {
@@ -49,5 +51,37 @@ namespace PantryProject_API.Controllers
                 return InternalServerError();
             return Ok();
         }
+        [HttpPost]
+        [Route("AddIngredient")]
+        public IHttpActionResult AddIngredient(int ingredientId, int recipeId)
+        {
+            if (!_ingredientInRecipeService.CreateIngredientInRecipe(ingredientId, recipeId))
+                return InternalServerError();
+            return Ok();
+        }
+        [HttpDelete]
+        [Route("RemoveIngredient")]
+        public IHttpActionResult RemoveIngredient(int ingredientId, int recipeId)
+        {
+            if (!_ingredientInRecipeService.Delete_JoinIngredientPreparedItem(ingredientId, recipeId))
+                return InternalServerError();
+            return Ok();
+        }
+        [HttpPost]
+        [Route("AddPreparedItem")]
+        public IHttpActionResult AddPreparedItem(int preparedItemId, int recipeId)
+        {
+            if (!_preparedItemInRecipeService.CreatePreparedItemInRecipe(preparedItemId, recipeId))
+                return InternalServerError();
+            return Ok();
+        }
+        [HttpDelete]
+        [Route("RemovePreparedItem")]
+        public IHttpActionResult DeletePreparedItem(int preparedItemId, int recipeId)
+        {
+            if (!_preparedItemInRecipeService.DeletePreparedItemInRecipe(preparedItemId, recipeId))
+                return InternalServerError();
+            return Ok();
+        }
     }
-}
+    }

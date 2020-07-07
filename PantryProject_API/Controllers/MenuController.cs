@@ -1,4 +1,5 @@
 ﻿using PantryProject.Models.Menu;
+using PantryProject_Services.JoiningObjectServices;
 using PantryProject_Services.MainObjectServices;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace PantryProject_API.Controllers
     public class MenuController : ApiController
     {
         private readonly MenuService _menuService = new MenuService();
-
+        private readonly Join_RecipeMenuService _recipeMenuService = new Join_RecipeMenuService();
         [HttpGet]
         public IHttpActionResult GetAllMenus()
         {
@@ -48,6 +49,21 @@ namespace PantryProject_API.Controllers
                 return InternalServerError();
             return Ok();
         }
-
+        [HttpPost]
+        [Route("AddRecipe")]
+        public IHttpActionResult AddRecipe(int recipeId, int menuId)
+        {
+            if (!_recipeMenuService.CreateRecipeInMenu(recipeId, menuId))
+                return InternalServerError();
+            return Ok();
+        }
+        [HttpDelete]
+        [Route("RemoveRecipe")]
+        public IHttpActionResult RemoveRecipe(int recipeId, int menuId)
+        {
+            if (!_recipeMenuService.DeleteRecipeFromMenu(menuId, recipeId);)
+                return InternalServerError();
+            return Ok();
+        }
     }
 }

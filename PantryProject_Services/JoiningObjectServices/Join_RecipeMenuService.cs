@@ -10,7 +10,7 @@ namespace PantryProject_Services.JoiningObjectServices
 {
     public class Join_RecipeMenuService
     {
-        public bool CreateIngredientInRecipe(int recipeId, int menuId)
+        public bool CreateRecipeInMenu(int recipeId, int menuId)
         {
             Join_RecipesInMenu entity = new Join_RecipesInMenu()
             {
@@ -25,7 +25,7 @@ namespace PantryProject_Services.JoiningObjectServices
             }
         }
 
-        public bool Delete_JoinIngredientPreparedItem(int menuId, int recipeId)
+        public bool DeleteRecipeFromMenu(int menuId, int recipeId)
         {
             using (var ctx = new ApplicationDbContext())
             {
